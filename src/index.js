@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import redux_modules from './redux_modules';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import App from './app/App';
+import Containers from './app/containers';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store ={redux_modules.store}>
+      <Router>
+          <Switch>
+              <Route exact path="/app" component={App} />
+              <Route exact path="/" component={Containers.LoginScreenContainers.LoginScreenContainerComponent} />
+              <Route exact path="/register" component={Containers.RegisterScreenContainers.RegisterScreenComponent} />
+          </Switch>
+      </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

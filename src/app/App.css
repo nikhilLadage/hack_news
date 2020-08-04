@@ -1,0 +1,108 @@
+#root {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+}
+
+.app {
+    height: 100vh;
+}
+
+.wrapper {
+    width: 80%;    
+    float: right;
+    transition: 0.5s;
+}
+
+.wrapperGrow {
+    width: 95%;
+    float: right;
+    transition: 0.5s;
+}
+.navBar {
+    height: 40px;
+    position: fixed;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 9999;
+}
+.sideBar {
+    width: 20%;
+    display: block;
+    float: left;
+    background-color: #000080;
+    height: 100%;
+    transition: 0.5s;
+    color: #F5F5FF;
+    position: fixed;
+}
+
+.sideBarItems {
+    background-color: #0062cc;
+    margin-bottom: 1px;
+}
+
+.sideBarItems:hover {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+.sideBarHide {
+    transition: 0.5s;
+    width: 5%;
+    display: block;
+    float: left;
+    background-color: #000080;
+    height: 100%;
+    color: #F5F5FF;
+    position: fixed;
+}
+
+.rootNav {
+    box-shadow: 0px 0px 4px #888888;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.activeSidebarItem {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .sideBarHide {
+        transition: 0.5s;
+        visibility: hidden;
+        width:  0%;
+        float: left;
+        background-color: #000080;
+        height: 100%;
+        color: #F5F5FF;
+        position: fixed;
+    }
+    .sideBar {
+        width: 40%;
+        display: block;
+        float: left;
+        background-color: #000080;
+        height: 100%;
+        transition: 0.5s;
+        color: #F5F5FF;
+        position: fixed;
+    }
+    .wrapper {
+        width: 60%;    
+        float: right;
+        transition: 0.5s;
+    }
+    
+    .wrapperGrow {
+        width: 100%;
+        float: right;
+        transition: 0.5s;
+    }
+}

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Row, Col, Container, Badge, Card} from 'react-bootstrap';
+import moment from 'moment';
 
 const ListsComponent = (props)=>{
     const userActiveSessionId = JSON.parse(localStorage.getItem('userActiveSessionId'));
@@ -25,7 +26,7 @@ const ListsComponent = (props)=>{
                             return 1;
                         }
                     }else{
-                        if(firstElem.challengeId > secElem.challengeId){
+                        if(moment(firstElem.creationAt).isBefore(secElem.creationAt)){
                             return 1;
                         }else{
                             return -1;
@@ -52,17 +53,12 @@ const ListsComponent = (props)=>{
         localStorage.setItem('Challenges', JSON.stringify(challengeData));
     };
     return (
-        <Container>
-            <Container>
-                <h3 className="mt-2">
-                    Dashboard 
-                </h3>
-            </Container>
+        <Container>            
             <Row>
                 <Col md={{ span: 4, offset: 8 }}>
                     Sort by : 
-                    <span className="ml-2" onClick={(e)=>getChallengesList(e, 'vote')}>Votes</span> /
-                    <span className="ml-2 text-primary" onClick={(e)=>getChallengesList(e, 'date')}>Date</span>
+                    <span className="ml-2 text-primary cursor" onClick={(e)=>getChallengesList(e, 'vote')}>Votes</span> /
+                    <span className="ml-2 text-primary cursor" onClick={(e)=>getChallengesList(e, 'date')}>Date</span>
                 </Col>
             </Row>
             <Row className="m-2">                
@@ -71,7 +67,14 @@ const ListsComponent = (props)=>{
                         <div key={index}>                            
                             <Card>
                                 <Card.Body className="pb-2">
-                                    <Card.Title>{eachChallengeObj.title}</Card.Title>
+                                    <Card.Title>
+                                        <b>
+                                            {eachChallengeObj.title}
+                                        </b> 
+                                        <small className="timeStamp float-right">
+                                            {moment(new Date(eachChallengeObj.creationAt)).fromNow()}
+                                        </small>
+                                    </Card.Title>
                                     <Card.Text className="mb-1">
                                         {eachChallengeObj.description}                                       
                                     </Card.Text>

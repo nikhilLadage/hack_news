@@ -72,6 +72,9 @@
     cursor: pointer;
 }
 
+.timeStamp {
+    font-size: 0.6rem;
+}
 
 @media only screen and (max-width: 720px) {
     .sideBarHide {

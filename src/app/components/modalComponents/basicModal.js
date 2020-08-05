@@ -10,7 +10,7 @@ const BasicModalComponent = (props) =>{
     };
     useEffect(()=>{
         setShow(toggleModal);
-    },[]);
+    });
     return (
         <Modal 
             show={show} 

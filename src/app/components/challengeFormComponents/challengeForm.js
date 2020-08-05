@@ -114,11 +114,6 @@ const ChallengeFormComponent = (props)=>{
     }
     return (
         <Container>
-            <Container className="p-2">
-                <h3>
-                    Add New Challenge
-                </h3>
-            </Container>
             <Row>
                <Col>
                     <Form>
